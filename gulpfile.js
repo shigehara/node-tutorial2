@@ -6,3 +6,7 @@ gulp.task("sass", function () {
     .pipe(sass().on("error", sass.logError))
     .pipe(gulp.dest("./css")); //出力先
 });
+
+gulp.task('watch', function () {
+    gulp.watch('./sass/**/*.scss', ['sass']);
+});
