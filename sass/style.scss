@@ -2,8 +2,13 @@
 
 $width: 300px;
 $color: red;
-h1{
-    font-size: $width;
-    color: $color;
-    float: left;
+h1 {
+  font-size: $width;
+  color: $color;
+  float: left;
+}
+
+main {
+  border-radius:5px;
+  display: flex;
 }

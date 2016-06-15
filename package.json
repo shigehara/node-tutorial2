@@ -19,6 +19,7 @@
   "homepage": "https://github.com/shigehara/node-tutorial2#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.3.1"
   }
 }

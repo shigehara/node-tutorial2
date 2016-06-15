@@ -2,3 +2,10 @@ h1 {
   font-size: 300px;
   color: red;
   float: left; }
+
+main {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
