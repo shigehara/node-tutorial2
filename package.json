@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp sass",
     "start": "gulp watch",
+    "browser": "browser-sync",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/shigehara/node-tutorial2#readme",
   "devDependencies": {
+    "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.3.1"
