@@ -1,7 +1,7 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
-var browserSync = require("browser-sync");
+var browserSync = require("browser-sync").create();
 
 gulp.task("sass", function () {
   gulp.src("./sass/**/*.scss") //入力元
@@ -13,19 +13,19 @@ gulp.task("sass", function () {
     .pipe(gulp.dest("./css")); //出力先
 });
 
-gulp.task('watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
-});
-
-gulp.task("browserSyncTask", function () {
-  browserSync({
+gulp.task('browser-sync', ["watch"], function() {
+  browserSync.init({
     server: {
-    baseDir: "src/*.html" // ルートとなるディレクトリを指定
+      baseDir: "./"
     }
   });
+});
 
-  // srcフォルダ以下のファイルを監視
-  gulp.watch("src/*.html", function() {
-      browserSync.reload();   // ファイルに変更があれば同期しているブラウザをリロード
-  });
+gulp.task('browser-sync:reload', function() {
+  browserSync.reload()
+});
+
+gulp.task('watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./**/*', ['browser-sync:reload']);
 });
