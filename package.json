@@ -4,9 +4,7 @@
   "description": "",
   "scripts": {
     "build": "gulp sass",
-    "start": "gulp watch",
-    "browser": "gulp browser-sync",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp start"
   },
   "repository": {
     "type": "git",

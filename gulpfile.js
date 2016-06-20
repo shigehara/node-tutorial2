@@ -10,22 +10,27 @@ gulp.task("sass", function () {
       browsers: ["last 2 versions", "ie >= 9", "Android >= 4","ios_saf >= 8"],
       cascade: false
     }))
-    .pipe(gulp.dest("./css")); //出力先
+    .pipe(gulp.dest("./css"))
+    .pipe(browserSync.stream()); //出力先
 });
 
-gulp.task('browser-sync', ["watch"], function() {
+gulp.task('browser-sync', function(cb) {
   browserSync.init({
     server: {
       baseDir: "./"
     }
   });
+  cb()
 });
 
 gulp.task('browser-sync:reload', function() {
   browserSync.reload()
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function (cb) {
   gulp.watch('./sass/**/*.scss', ['sass']);
-  gulp.watch('./**/*', ['browser-sync:reload']);
+  gulp.watch('./**/*.html', ['browser-sync:reload']);
+  cb()
 });
+
+gulp.task('start', ["watch",  "browser-sync"]);
